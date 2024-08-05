@@ -67,16 +67,17 @@ nav .hiden_menu:hover{
 nav.hide{
     width: 0;
 }
-.user{
-    margin-bottom: 30px;
+nav .users{
+    margin-bottom: 25%;
 }
-.user img{
-    width: 100px;
+nav .users img{
+    width: 120px ;
     border-radius: 50%;
     margin: 2%;
 }
-.user ul{
+nav .users ul{
     margin-top: 20%;
+    margin-left: 10%;
 }
 
 /* SECTION */
@@ -92,7 +93,8 @@ header{
 }
 header .user img{
     width: 50px;
-    margin-top: 40%;
+    margin-top: 30%;
+    border-radius: 50%;
 }
 header .user{
     right: 40%;
