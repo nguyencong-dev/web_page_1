@@ -18,7 +18,6 @@ nav{
     width: 15%;
     height: 100%;
     background-color: lightblue;
-    display: flex;
     align-items: center;
     border-right: 1px solid rgb(77,77,255);
     z-index: 200;
@@ -47,17 +46,6 @@ nav ul li a fa-solid{
 nav ul li a:hover{
     color: whitesmoke;
     background-color: cyan  ;
-}
-.content{
-    position: absolute;
-    top: 0%;
-    left:20%;
-    width: calc(100% - 15%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
 }
 nav .hiden_menu{
     position: absolute;
@@ -91,3 +79,26 @@ nav.hide{
     margin-top: 20%;
 }
 
+/* SECTION */
+
+/* HEADER */
+header{
+    background-color: blue;
+    width: 100%;
+}
+header{
+    justify-content: space-between;
+    align-items: center;
+}
+header .user img{
+    width: 50px;
+    margin-top: 40%;
+}
+header .user{
+    right: 40%;
+    padding-right: 1.5%;
+}
+header .user p{
+    color: white;
+    padding-left: 10px;
+}
