@@ -25,7 +25,7 @@ nav{
 
 nav ul{
     width: 100%;
-    list-style: none;
+    list-style-type: none;
     overflow: hidden;
 }
 nav ul li a{
@@ -55,7 +55,7 @@ nav .hiden_menu{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #5f76e8;
+    background-color: lightblue;
     border-radius: 0 10% 10% 0;
     cursor: pointer;
 }
@@ -80,7 +80,6 @@ nav .users ul{
 }
 
 /* SECTION */
-
 /* HEADER */
 header{
     background-color: #5f76e8;
@@ -102,4 +101,18 @@ header .user{
 header .user p{
     color: white;
     padding-left: 10px;
+}
+/*CONTENT*/
+.content{
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 85%;
+    min-height: 100vh;
+    padding: 20px;
+
+}
+.content.expand{
+    width: 100%;
+    left:0
 }
