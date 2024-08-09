@@ -62,3 +62,8 @@ table tbody .fa-solid{
 .pages .page button:hover{
     background-color: #4fd3d8;
 }
+
+/* FOOTER */
+footer{
+    justify-content: space-between;
+}

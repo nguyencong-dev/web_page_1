@@ -110,9 +110,24 @@ header .user p{
     width: 85%;
     min-height: 100vh;
     padding: 20px;
-
 }
 .content.expand{
     width: 100%;
-    left:0
+    left:0;
+    padding: 0;
 }
+/* FOOTER */
+footer, .contact{
+    justify-content: space-between;
+}
+footer .school-info, .contact, h3{
+    list-style-type: none;
+    padding: 20px;
+}
+footer{
+    margin-top: 1%;
+    background-color: #5f76e8;
+}
+/* footer div .contact li i{
+    width: 90px;
+} */
