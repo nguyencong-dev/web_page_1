@@ -110,6 +110,7 @@ header .user p{
     width: 85%;
     min-height: 100vh;
     padding: 20px;
+    transition: ease-in-out .5s;
 }
 .content.expand{
     width: 100%;
