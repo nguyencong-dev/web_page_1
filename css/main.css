@@ -118,7 +118,7 @@ header .user p{
     padding: 0;
 }
 /* FOOTER */
-footer, .contact{
+.footer, .contact{
     justify-content: space-between;
 }
 footer .school-info, .contact, h3{
@@ -129,6 +129,17 @@ footer{
     margin-top: 1%;
     background-color: #5f76e8;
 }
-/* footer div .contact li i{
-    width: 90px;
-} */
+.yellow{
+    color: yellow;
+}
+.footer_light{
+    background-color: white;
+}
+.footer_light h4{
+    width: 80%;
+    text-align: center;
+    color:blue;
+    text-align: left;
+    font-weight: normal;
+    padding: 10px;
+}
