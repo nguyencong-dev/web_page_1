@@ -157,65 +157,89 @@ window.onload = function () {
     `;
 
     // Gán sự kiện cho các nút "Edit"
-    newRow.querySelector(".edit").onclick = function () {
-      let cells = newRow.querySelectorAll("td:not(:last-child)");
-      for (let i = 0; i < cells.length; i++) {
-        if (i === 5) {
-          let currentText = cells[i].textContent;
-          cells[i].innerHTML = `
-                    <select>
-                        <option value="Nam" ${
-                          currentText === "Nam" ? "selected" : ""
-                        }>Nam</option>
-                        <option value="Nữ" ${
-                          currentText === "Nữ" ? "selected" : ""
-                        }>Nữ</option>
-                    </select>`;
-        } else {
-          cells[
-            i
-          ].innerHTML = `<input type="text" value="${cells[i].textContent}">`;
+    let editButtons = document.getElementsByClassName("edit");
+    for (let ed of editButtons) {
+      ed.onclick = function () {
+        let row = ed.closest("tr");
+        let cells = row.querySelectorAll("td:not(:last-child)");
+        let index = 0;
+
+        for (let cell of cells) {
+          let currentText = cell.textContent;
+          if (index === 5) {
+            cell.innerHTML = `
+          <select>
+            <option value="Nam" ${
+              currentText === "Nam" ? "selected" : ""
+            }>Nam</option>
+            <option value="Nữ" ${
+              currentText === "Nữ" ? "selected" : ""
+            }>Nữ</option>
+          </select>
+        `;
+          } else {
+            cell.innerHTML = `<input type="text" value="${currentText}">`;
+          }
+          index++;
         }
-      }
-      newRow.querySelector(".save").style.display = "inline";
-      newRow.querySelector(".cancel").style.display = "inline";
-      newRow.querySelector(".edit").style.display = "none";
-      newRow.querySelector(".delete").style.display = "none";
-    };
+        row.querySelector(".edit").style.display = "none";
+        row.querySelector(".delete").style.display = "none";
+        row.querySelector(".save").style.display = "inline";
+        row.querySelector(".cancel").style.display = "inline";
+      };
+    }
 
     // Gán sự kiện cho các nút "Delete"
-    newRow.querySelector(".delete").onclick = function () {
-      table.deleteRow(newRow.rowIndex);
-    };
-
-    // Gán sự kiện cho các nút "Save"
-    newRow.querySelector(".save").onclick = function () {
-      let cells = newRow.querySelectorAll("td:not(:last-child)");
-      for (let i = 0; i < cells.length; i++) {
-        let input = cells[i].querySelector("input, select");
-        if (input) {
-          cells[i].textContent = input.value;
+    let del = document.getElementsByClassName("delete");
+    for (let d of del) {
+      d.onclick = function () {
+        let row = d.closest("tr");
+        if (row) {
+          row.parentNode.removeChild(row);
         }
-      }
-      newRow.querySelector(".edit").style.display = "inline";
-      newRow.querySelector(".delete").style.display = "inline";
-      newRow.querySelector(".save").style.display = "none";
-      newRow.querySelector(".cancel").style.display = "none";
-    };
+      };
+    }
+    // Gán sự kiện cho các nút "Save"
+    let saveButtons = document.getElementsByClassName("save");
+    for (let sav of saveButtons) {
+      sav.onclick = function () {
+        let row = sav.closest("tr");
+        let cells = row.querySelectorAll("td:not(:last-child)");
+        let index = 0;
+        for (let cell of cells) {
+          let currentText = cell.textContent;
+          let input = cell.querySelector("input, select");
+          if (input) {
+            cell.textContent = input.value;
+          }
+          index++;
+        }
+        row.querySelector(".edit").style.display = "inline";
+        row.querySelector(".delete").style.display = "inline";
+        row.querySelector(".save").style.display = "none";
+        row.querySelector(".cancel").style.display = "none";
+      };
+    }
 
     // Gán sự kiện cho các nút "Cancel"
-    newRow.querySelector(".cancel").onclick = function () {
-      let cells = newRow.querySelectorAll("td:not(:last-child)");
-      for (let i = 0; i < cells.length; i++) {
-        let input = cells[i].querySelector("input, select");
-        if (input) {
-          cells[i].textContent = input.defaultValue;
+    let cancelButtons = document.getElementsByClassName("cancel");
+    for (let can of cancelButtons) {
+      can.onclick = function () {
+        let row = can.closest("tr");
+        let cells = row.querySelectorAll("td:not(:last-child)");
+        let index = 0;
+        for (let cell of cells) {
+          let input = cell.querySelector("input, select");
+          if (input) {
+            cell.textContent = input.defaultValue;
+          }
+          index++;
         }
-      }
-      newRow.querySelector(".edit").style.display = "inline";
-      newRow.querySelector(".delete").style.display = "inline";
-      newRow.querySelector(".save").style.display = "none";
-      newRow.querySelector(".cancel").style.display = "none";
-    };
+        row.querySelector(".edit").style.display = "inline";
+        row.querySelector(".delete").style.display = "inline";
+        row.querySelector(".save").style.display = "none";
+        row.querySelector(".cancel").style.display = "none";
+      };
+    }
   };
 };
