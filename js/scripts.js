@@ -73,16 +73,16 @@ window.onload = function () {
 
   // SAVE
   let saveButtons = document.getElementsByClassName("save");
-  for(let sav of saveButtons ){
-    sav.onclick = function(){
-      let row = sav.closest("tr")
+  for (let sav of saveButtons) {
+    sav.onclick = function () {
+      let row = sav.closest("tr");
       let cells = row.querySelectorAll("td:not(:last-child)");
       let index = 0;
       for (let cell of cells) {
         let currentText = cell.textContent;
-        let input = cell.querySelector('input, select');
+        let input = cell.querySelector("input, select");
         if (input) {
-            cell.textContent = input.value;
+          cell.textContent = input.value;
         }
         index++;
       }
@@ -90,6 +90,132 @@ window.onload = function () {
       row.querySelector(".delete").style.display = "inline";
       row.querySelector(".save").style.display = "none";
       row.querySelector(".cancel").style.display = "none";
-    }
+    };
   }
+
+  // CANCEL
+  let cancelButtons = document.getElementsByClassName("cancel");
+  for (let can of cancelButtons) {
+    can.onclick = function () {
+      let row = can.closest("tr");
+      let cells = row.querySelectorAll("td:not(:last-child)");
+      let index = 0;
+      for (let cell of cells) {
+        let input = cell.querySelector("input, select");
+        if (input) {
+          cell.textContent = input.defaultValue;
+        }
+        index++;
+      }
+      row.querySelector(".edit").style.display = "inline";
+      row.querySelector(".delete").style.display = "inline";
+      row.querySelector(".save").style.display = "none";
+      row.querySelector(".cancel").style.display = "none";
+    };
+  }
+
+  // INSERT NEW ROW
+  let insertRow = document.getElementById("new_row");
+  insertRow.onclick = function () {
+    let table = document
+      .getElementsByClassName("table_data")[0]
+      .getElementsByTagName("tbody")[0];
+    let newRow = table.insertRow();
+
+    // Tạo và thêm các ô vào hàng mới với placeholder
+    newRow.insertCell(
+      0
+    ).innerHTML = `<input type="text" placeholder="MSSV mới">`;
+    newRow.insertCell(
+      1
+    ).innerHTML = `<input type="text" placeholder="Họ tên mới">`;
+    newRow.insertCell(
+      2
+    ).innerHTML = `<input type="text" placeholder="Lớp mới">`;
+    newRow.insertCell(
+      3
+    ).innerHTML = `<input type="text" placeholder="Khoa mới">`;
+    newRow.insertCell(4).innerHTML = `<input type="date" value="2000-01-01">`;
+    newRow.insertCell(5).innerHTML = `
+        <select>
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+        </select>`;
+    newRow.insertCell(
+      6
+    ).innerHTML = `<input type="text" placeholder="Địa chỉ mới">`;
+    newRow.insertCell(
+      7
+    ).innerHTML = `<input type="text" placeholder="2023-2024">`;
+
+    // Tạo các nút "Edit", "Delete", "Save", và "Cancel"
+    newRow.insertCell(8).innerHTML = `
+      <button style="display: none" class="edit"><i class="fa-solid fa-pen"></i></button>
+      <button style="display: none" class="delete"><i class="fa-solid fa-trash"></i></button>
+      <button style="display: inline" class="save"><i class="fa-solid fa-floppy-disk"></i></button>
+      <button style="display: inline" class="cancel"><i class="fa-solid fa-ban"></i></button>
+    `;
+
+    // Gán sự kiện cho các nút "Edit"
+    newRow.querySelector(".edit").onclick = function () {
+      let cells = newRow.querySelectorAll("td:not(:last-child)");
+      for (let i = 0; i < cells.length; i++) {
+        if (i === 5) {
+          let currentText = cells[i].textContent;
+          cells[i].innerHTML = `
+                    <select>
+                        <option value="Nam" ${
+                          currentText === "Nam" ? "selected" : ""
+                        }>Nam</option>
+                        <option value="Nữ" ${
+                          currentText === "Nữ" ? "selected" : ""
+                        }>Nữ</option>
+                    </select>`;
+        } else {
+          cells[
+            i
+          ].innerHTML = `<input type="text" value="${cells[i].textContent}">`;
+        }
+      }
+      newRow.querySelector(".save").style.display = "inline";
+      newRow.querySelector(".cancel").style.display = "inline";
+      newRow.querySelector(".edit").style.display = "none";
+      newRow.querySelector(".delete").style.display = "none";
+    };
+
+    // Gán sự kiện cho các nút "Delete"
+    newRow.querySelector(".delete").onclick = function () {
+      table.deleteRow(newRow.rowIndex);
+    };
+
+    // Gán sự kiện cho các nút "Save"
+    newRow.querySelector(".save").onclick = function () {
+      let cells = newRow.querySelectorAll("td:not(:last-child)");
+      for (let i = 0; i < cells.length; i++) {
+        let input = cells[i].querySelector("input, select");
+        if (input) {
+          cells[i].textContent = input.value;
+        }
+      }
+      newRow.querySelector(".edit").style.display = "inline";
+      newRow.querySelector(".delete").style.display = "inline";
+      newRow.querySelector(".save").style.display = "none";
+      newRow.querySelector(".cancel").style.display = "none";
+    };
+
+    // Gán sự kiện cho các nút "Cancel"
+    newRow.querySelector(".cancel").onclick = function () {
+      let cells = newRow.querySelectorAll("td:not(:last-child)");
+      for (let i = 0; i < cells.length; i++) {
+        let input = cells[i].querySelector("input, select");
+        if (input) {
+          cells[i].textContent = input.defaultValue;
+        }
+      }
+      newRow.querySelector(".edit").style.display = "inline";
+      newRow.querySelector(".delete").style.display = "inline";
+      newRow.querySelector(".save").style.display = "none";
+      newRow.querySelector(".cancel").style.display = "none";
+    };
+  };
 };

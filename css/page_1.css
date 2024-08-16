@@ -1,79 +1,86 @@
-.option{
-    justify-content: space-between;
+.option {
+  justify-content: space-between;
 }
-.option div h1{
-    font-size: 1.5rem;
+.option div h1 {
+  font-size: 1.5rem;
 }
-.option .buttonn{
-    width: 70px;
-    height: 50px;
+.option #new_row, 
+.option #refresh, 
+.option #sort {
+  width: 70px;
+  height: 50px;
 }
-.option .buttonn:hover{
-    background-color: aquamarine;
-    color:#5f76e8;
+
+.option #new_row:hover, 
+.option #refresh:hover, 
+.option #sort:hover {
+  background-color: aquamarine;
+  color: #5f76e8;
 }
-.option div #search{
-    width: 250px;
-    height: 30px;
-    margin-top: 30px;
-    border-radius: 10px;
+
+.option div #search {
+  width: 250px;
+  height: 30px;
+  margin-top: 30px;
+  border-radius: 10px;
 }
-table{
-    margin-top: 0.7%;
-    width: 100%;
-    border: 1px solid black;
-    border-collapse: collapse;
-    text-align: center;
+table {
+  margin-top: 0.7%;
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
 }
-table tbody tr,td{
-    border: 1px solid black;
+table tbody tr,
+td {
+  border: 1px solid black;
 }
-table thead{
-    color: white;
-    background-color: #3f5467;
+table thead {
+  color: white;
+  background-color: #3f5467;
 }
-table tbody .edit{
-    background-color: #64a2e4;
-    width: 35px;
-    height: 35px;
-    margin: 3px 0px;
-} 
-table tbody .delete{
-    background-color:#dc3546;
-    width: 35px;
-    height: 35px;
-    margin: 3px 0px;
+table tbody .edit {
+  background-color: #64a2e4;
+  width: 35px;
+  height: 35px;
+  margin: 3px 0px;
 }
-table tbody .save{
-    background-color:rgb(24, 165, 46);
-    width: 35px;
-    height: 35px;
-    margin: 3px 0px;
-    display: none;
+table tbody .delete {
+  background-color: #dc3546;
+  width: 35px;
+  height: 35px;
+  margin: 3px 0px;
 }
-table tbody .cancel{
-    background-color:rgb(175, 17, 54);
-    width: 35px;
-    height: 35px;
-    margin: 3px 0px;
-    display: none;
+table tbody .save {
+  background-color: rgb(24, 165, 46);
+  width: 35px;
+  height: 35px;
+  margin: 3px 0px;
+  display: none;
 }
-table tbody .fa-solid{
-    color: white;
+table tbody .cancel {
+  background-color: rgb(175, 17, 54);
+  width: 35px;
+  height: 35px;
+  margin: 3px 0px;
+  display: none;
 }
-.pages{
-    justify-content: space-between;
-    height: 2%;
-    padding-top:0.5% ;
+table tbody .fa-solid {
+  color: white;
 }
-.pages .page button{
-   width: 35px;
-   height: 35px;
+.pages {
+  justify-content: space-between;
+  height: 2%;
+  padding-top: 0.5%;
 }
-.pages .page button:first-child{
-    background-color: #64a2e4;
-    color: white;
+.pages .page button {
+  width: 35px;
+  height: 35px;
 }
-.pages .page button:hover{
-    background-color: #4fd3d8;
+.pages .page button:first-child {
+  background-color: #64a2e4;
+  color: white;
+}
+.pages .page button:hover {
+  background-color: #4fd3d8;
 }
