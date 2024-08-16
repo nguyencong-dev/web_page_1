@@ -37,4 +37,59 @@ window.onload = function () {
       }
     };
   }
+
+  // EDIT
+  let editButtons = document.getElementsByClassName("edit");
+  for (let ed of editButtons) {
+    ed.onclick = function () {
+      let row = ed.closest("tr");
+      let cells = row.querySelectorAll("td:not(:last-child)");
+      let index = 0;
+
+      for (let cell of cells) {
+        let currentText = cell.textContent;
+        if (index === 5) {
+          cell.innerHTML = `
+          <select>
+            <option value="Nam" ${
+              currentText === "Nam" ? "selected" : ""
+            }>Nam</option>
+            <option value="Nữ" ${
+              currentText === "Nữ" ? "selected" : ""
+            }>Nữ</option>
+          </select>
+        `;
+        } else {
+          cell.innerHTML = `<input type="text" value="${currentText}">`;
+        }
+        index++;
+      }
+      row.querySelector(".edit").style.display = "none";
+      row.querySelector(".delete").style.display = "none";
+      row.querySelector(".save").style.display = "inline";
+      row.querySelector(".cancel").style.display = "inline";
+    };
+  }
+
+  // SAVE
+  let saveButtons = document.getElementsByClassName("save");
+  for(let sav of saveButtons ){
+    sav.onclick = function(){
+      let row = sav.closest("tr")
+      let cells = row.querySelectorAll("td:not(:last-child)");
+      let index = 0;
+      for (let cell of cells) {
+        let currentText = cell.textContent;
+        let input = cell.querySelector('input, select');
+        if (input) {
+            cell.textContent = input.value;
+        }
+        index++;
+      }
+      row.querySelector(".edit").style.display = "inline";
+      row.querySelector(".delete").style.display = "inline";
+      row.querySelector(".save").style.display = "none";
+      row.querySelector(".cancel").style.display = "none";
+    }
+  }
 };

@@ -70,7 +70,8 @@ nav .users{
     margin-bottom: 25%;
 }
 nav .users img{
-    width: 120px ;
+    width: 45% ;
+    height:45%;
     border-radius: 50%;
     margin: 2%;
 }
