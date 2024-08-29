@@ -242,4 +242,26 @@ window.onload = function () {
       };
     }
   };
+  // refresh
+  let ref = document.getElementById("refresh");
+  ref.onclick = function(){
+    location.reload();
+  }
+  // sort
+  let sortButton = document.getElementById("sort")
+  sortButton.onclick = function(){
+    let table = document.querySelector(".table_data");
+    let tbody = table.querySelector("tbody");
+    let rows = Array.from(tbody.rows);
+    let columnIndex = 1;
+    let sortedRows = rows.sort((a, b) => {
+        let lastWordA = a.cells[columnIndex].innerText.trim().split(" ").pop().toLowerCase();
+        let lastWordB = b.cells[columnIndex].innerText.trim().split(" ").pop().toLowerCase();
+        return lastWordA.localeCompare(lastWordB);
+    });
+
+    tbody.innerHTML = "";
+
+    sortedRows.forEach(row => tbody.appendChild(row));
+  }
 };
